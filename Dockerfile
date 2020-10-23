@@ -40,7 +40,6 @@ RUN pip3 install -r /requirements.txt
 
 COPY . /
 
-ENTRYPOINT ["/app/docker/entrypoint.sh"]
 
 RUN adduser --disabled-password --gecos '' user
 USER user
