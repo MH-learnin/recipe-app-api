@@ -27,12 +27,20 @@ RUN apt-get -y update \
     && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
+WORKDIR /app
+
 COPY ./requirements.txt /requirements.txt
+
+ENV VENV=/opt/venv
+RUN virtualenv --python=python3 $VENV
+ENV PATH="$VENV/bin:$PATH"
+
+
 RUN pip3 install -r /requirements.txt
 
-RUN mkdir /app
-WORKDIR /app
-COPY ./app /app
+COPY . /
+
+ENTRYPOINT ["/app/docker/entrypoint.sh"]
 
 RUN adduser --disabled-password --gecos '' user
 USER user
