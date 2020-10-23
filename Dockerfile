@@ -27,8 +27,13 @@ RUN apt-get -y update \
     && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-WORKDIR /app
-COPY requirements.txt /app
+COPY ./requirements.txt /requirements.txt
+RUN pip3 install -r /requirements.txt
 
-RUN pip3 install -r /app/requirements.txt
+RUN mkdir /app
+WORKDIR /app
+COPY ./app /app
+
+RUN adduser --disabled-password --gecos '' user
+USER user
 
