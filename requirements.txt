@@ -3,7 +3,7 @@ django-filter==2.1.0      # via -r requirements.in
 django-opentracing==1.1.0  # via -r requirements.in
 django-redis-cache==2.1.0  # via -r requirements.in
 django-redis-sessions==0.6.1  # via -r requirements.in
-django==2.2.11            # via -r requirements.in, django-filter, django-opentracing, djangorestframework, drf-yasg
+django==2.2.13            # via -r requirements.in, django-filter, django-opentracing, djangorestframework, drf-yasg
 djangorestframework-csv==2.1.0  # via -r requirements.in
 djangorestframework==3.11.1  # via -r requirements.in, djangorestframework-csv, drf-yasg
 flake8==3.7.9
