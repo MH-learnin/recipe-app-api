@@ -7,3 +7,4 @@ django==2.2.13            # via -r requirements.in, django-filter, django-opentr
 djangorestframework-csv==2.1.0  # via -r requirements.in
 djangorestframework==3.11.1  # via -r requirements.in, djangorestframework-csv, drf-yasg
 flake8==3.6.0
+psycopg2==2.7.5
